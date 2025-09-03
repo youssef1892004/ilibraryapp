@@ -35,22 +35,21 @@ class BookCard extends StatelessWidget {
                   book.coverImageUrl,
                   fit: BoxFit.cover,
                   // لإظهار مؤشر تحميل أثناء تحميل الصورة
-                  loadingBuilder:
-                      (
-                        BuildContext context,
-                        Widget child,
-                        ImageChunkEvent? loadingProgress,
-                      ) {
-                        if (loadingProgress == null) return child;
-                        return Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded /
-                                      loadingProgress.expectedTotalBytes!
-                                : null,
-                          ),
-                        );
-                      },
+                  loadingBuilder: (
+                    BuildContext context,
+                    Widget child,
+                    ImageChunkEvent? loadingProgress,
+                  ) {
+                    if (loadingProgress == null) return child;
+                    return Center(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                                loadingProgress.expectedTotalBytes!
+                            : null,
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
